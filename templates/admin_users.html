@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>User Management - Campus360</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#222;
+}
+
+.header{
+    background:#1e3a8a;
+    color:white;
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.header h1{
+    font-size:25px;
+}
+
+.back{
+    background:white;
+    color:#1e3a8a;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:35px;
+}
+
+.title{
+    margin-bottom:25px;
+}
+
+.title h2{
+    color:#1e3a8a;
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.title p{
+    color:#666;
+}
+
+.table-box{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.08);
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:800px;
+}
+
+th{
+    background:#1e3a8a;
+    color:white;
+    padding:15px;
+    text-align:left;
+}
+
+td{
+    padding:15px;
+    border-bottom:1px solid #eee;
+}
+
+tr:hover{
+    background:#f8fafc;
+}
+
+.name{
+    font-weight:bold;
+}
+
+.email{
+    color:#666;
+}
+
+.role-form{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+select{
+    padding:9px 12px;
+    border:1px solid #d5d9e2;
+    border-radius:8px;
+    background:white;
+    font-size:14px;
+}
+
+.update-btn{
+    background:#1e3a8a;
+    color:white;
+    border:none;
+    padding:9px 14px;
+    border-radius:7px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.update-btn:hover{
+    background:#162d6b;
+}
+
+.role-badge{
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.student{
+    background:#dbeafe;
+    color:#1d4ed8;
+}
+
+.faculty{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.admin{
+    background:#fef3c7;
+    color:#b45309;
+}
+
+.note{
+    background:#fff7ed;
+    color:#9a3412;
+    padding:14px 18px;
+    border-radius:10px;
+    margin-bottom:20px;
+    line-height:1.5;
+}
+
+.empty{
+    text-align:center;
+    padding:35px;
+    color:#666;
+}
+
+@media(max-width:700px){
+
+    .header{
+        padding:15px 20px;
+    }
+
+    .header h1{
+        font-size:21px;
+    }
+
+    .container{
+        padding:20px;
+    }
+
+    .role-form{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="header">
+
+    <h1>🎓 Campus360 Admin</h1>
+
+    <a href="/admin_dashboard" class="back">
+        ← Dashboard
+    </a>
+
+</div>
+
+
+<div class="container">
+
+
+    <div class="title">
+
+        <h2>⚙️ User Management</h2>
+
+        <p>
+            View registered users and manage their roles.
+        </p>
+
+    </div>
+
+
+    <div class="note">
+
+        ⚠️ Role change immediately affects which dashboard the user
+        can access after the next login.
+
+    </div>
+
+
+    <div class="table-box">
+
+
+        {% if users %}
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Name</th>
+
+                    <th>Email</th>
+
+                    <th>Current Role</th>
+
+                    <th>Change Role</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+            {% for user in users %}
+
+                <tr>
+
+                    <td>
+                        {{ user.id }}
+                    </td>
+
+
+                    <td class="name">
+                        {{ user.name }}
+                    </td>
+
+
+                    <td class="email">
+                        {{ user.email }}
+                    </td>
+
+
+                    <td>
+
+                        {% if user.role == "Student" %}
+
+                            <span class="role-badge student">
+                                Student
+                            </span>
+
+                        {% elif user.role == "Faculty" %}
+
+                            <span class="role-badge faculty">
+                                Faculty
+                            </span>
+
+                        {% else %}
+
+                            <span class="role-badge admin">
+                                Admin
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <td>
+
+                        <form
+                            action="/admin_user_role/{{ user.id }}"
+                            method="POST"
+                            class="role-form"
+                        >
+
+                            <select name="role">
+
+                                <option
+                                    value="Student"
+                                    {% if user.role == "Student" %}
+                                    selected
+                                    {% endif %}
+                                >
+                                    Student
+                                </option>
+
+                                <option
+                                    value="Faculty"
+                                    {% if user.role == "Faculty" %}
+                                    selected
+                                    {% endif %}
+                                >
+                                    Faculty
+                                </option>
+
+                                <option
+                                    value="Admin"
+                                    {% if user.role == "Admin" %}
+                                    selected
+                                    {% endif %}
+                                >
+                                    Admin
+                                </option>
+
+                            </select>
+
+
+                            <button
+                                type="submit"
+                                class="update-btn"
+                            >
+                                Update
+                            </button>
+
+                        </form>
+
+                    </td>
+
+                </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <div class="empty">
+
+            <h3>No Users Found</h3>
+
+            <p>
+                Registered users will appear here.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>

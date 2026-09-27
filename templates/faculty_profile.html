@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus360 - Faculty Profile</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+        }
+
+        .header {
+            background: #123b70;
+            color: white;
+            padding: 20px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        .back {
+            background: white;
+            color: #123b70;
+            padding: 9px 18px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .profile-top {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            background: #123b70;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            margin: auto;
+        }
+
+        .profile-top h2 {
+            margin-top: 15px;
+            color: #123b70;
+        }
+
+        .profile-top p {
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .detail-box {
+            background: #f7f9fc;
+            padding: 18px;
+            border-radius: 10px;
+        }
+
+        .detail-box span {
+            display: block;
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 7px;
+        }
+
+        .detail-box strong {
+            color: #222;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+
+            .header {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .details {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card {
+                padding: 25px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <h1>🎓 Campus360</h1>
+
+        <a href="/faculty_dashboard" class="back">
+            ← Dashboard
+        </a>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="profile-card">
+
+            <div class="profile-top">
+
+                <div class="avatar">
+                    👨‍🏫
+                </div>
+
+                <h2>Faculty Profile</h2>
+
+                <p>Campus360 Faculty Account</p>
+
+            </div>
+
+
+            <div class="details">
+
+                <div class="detail-box">
+                    <span>Name</span>
+                    <strong>Faculty</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>Role</span>
+                    <strong>Faculty</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>Email</span>
+                    <strong>faculty@campus360.com</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>Department</span>
+                    <strong>Computer Science & Engineering</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>College</span>
+                    <strong>Bakhtiyarpur College of Engineering</strong>
+                </div>
+
+                <div class="detail-box">
+                    <span>System</span>
+                    <strong>Campus360 Management System</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus360 - Student Complaints</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+        }
+
+        .header {
+            background: #123b70;
+            color: white;
+            padding: 20px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        .back {
+            background: white;
+            color: #123b70;
+            padding: 9px 18px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        .title {
+            margin-bottom: 25px;
+        }
+
+        .title h2 {
+            color: #123b70;
+            margin-bottom: 8px;
+        }
+
+        .title p {
+            color: #666;
+        }
+
+        .complaints {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .complaint-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .complaint-icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .complaint-card h3 {
+            color: #123b70;
+            margin-bottom: 12px;
+        }
+
+        .complaint-card p {
+            color: #666;
+            line-height: 1.6;
+            margin: 8px 0;
+        }
+
+        .email {
+            font-size: 13px;
+            color: #1976d2;
+            font-weight: bold;
+        }
+
+        .status {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 6px 12px;
+            border-radius: 5px;
+            background: #fff4df;
+            color: #b66a00;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .empty {
+            background: white;
+            padding: 35px;
+            text-align: center;
+            border-radius: 12px;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <h1>🎓 Campus360</h1>
+
+        <a href="/faculty_dashboard" class="back">
+            ← Dashboard
+        </a>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="title">
+
+            <h2>💬 Student Complaints</h2>
+
+            <p>
+                View complaints submitted by students
+            </p>
+
+        </div>
+
+
+        {% if records %}
+
+        <div class="complaints">
+
+            {% for record in records %}
+
+            <div class="complaint-card">
+
+                <div class="complaint-icon">
+                    💬
+                </div>
+
+                <h3>
+                    {{ record.subject }}
+                </h3>
+
+                <p class="email">
+                    👤 {{ record.student_email }}
+                </p>
+
+                <p>
+                    <strong>Description:</strong>
+                </p>
+
+                <p>
+                    {{ record.description }}
+                </p>
+
+                <span class="status">
+                    Status: {{ record.status }}
+                </span>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty">
+
+            <h3>No Complaints</h3>
+
+            <p>
+                No student complaints have been submitted yet.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

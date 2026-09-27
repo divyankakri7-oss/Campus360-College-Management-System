@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Result - Campus360</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#222;
+}
+
+/* Header */
+
+.header{
+    background:#1e3a8a;
+    color:white;
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.header h1{
+    font-size:25px;
+}
+
+.back{
+    background:white;
+    color:#1e3a8a;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+/* Main */
+
+.container{
+    padding:40px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.title{
+    margin-bottom:25px;
+}
+
+.title h2{
+    color:#1e3a8a;
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.title p{
+    color:#666;
+}
+
+/* Student Info */
+
+.student-info{
+    background:white;
+    padding:22px;
+    border-radius:15px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.08);
+    margin-bottom:25px;
+}
+
+.student-info p{
+    margin:8px 0;
+    color:#555;
+}
+
+/* Table */
+
+.table-box{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.08);
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:650px;
+}
+
+th{
+    background:#1e3a8a;
+    color:white;
+    padding:15px;
+    text-align:left;
+}
+
+td{
+    padding:15px;
+    border-bottom:1px solid #eee;
+}
+
+tr:hover{
+    background:#f8fafc;
+}
+
+/* Grade */
+
+.grade{
+    font-weight:bold;
+    color:#1e3a8a;
+}
+
+/* Status */
+
+.pass{
+    background:#dcfce7;
+    color:#15803d;
+    padding:7px 14px;
+    border-radius:20px;
+    font-weight:bold;
+    display:inline-block;
+}
+
+.fail{
+    background:#fee2e2;
+    color:#b91c1c;
+    padding:7px 14px;
+    border-radius:20px;
+    font-weight:bold;
+    display:inline-block;
+}
+
+/* Summary */
+
+.summary{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.summary-card{
+    background:white;
+    padding:22px;
+    border-radius:15px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.08);
+    text-align:center;
+}
+
+.summary-card h3{
+    color:#666;
+    font-size:15px;
+    margin-bottom:10px;
+}
+
+.summary-card p{
+    color:#1e3a8a;
+    font-size:25px;
+    font-weight:bold;
+}
+
+.empty{
+    text-align:center;
+    padding:40px;
+    color:#666;
+}
+
+/* Mobile */
+
+@media(max-width:700px){
+
+    .header{
+        padding:15px 20px;
+    }
+
+    .header h1{
+        font-size:21px;
+    }
+
+    .container{
+        padding:20px;
+    }
+
+    .summary{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- Header -->
+
+<div class="header">
+
+    <h1>🎓 Campus360</h1>
+
+    <a href="/dashboard" class="back">
+        ← Dashboard
+    </a>
+
+</div>
+
+
+<!-- Main -->
+
+<div class="container">
+
+
+    <div class="title">
+
+        <h2>📊 Academic Result</h2>
+
+        <p>
+            View your semester-wise academic result
+        </p>
+
+    </div>
+
+
+    {% if records %}
+
+
+    <!-- Student Information -->
+
+    <div class="student-info">
+
+        <p>
+            <strong>Student:</strong>
+            Divya
+        </p>
+
+        <p>
+            <strong>Course:</strong>
+            CSE (IoT)
+        </p>
+
+        <p>
+            <strong>Semester:</strong>
+            6th Semester
+        </p>
+
+    </div>
+
+
+    <!-- Result Table -->
+
+    <div class="table-box">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Subject</th>
+
+                    <th>Marks</th>
+
+                    <th>Total</th>
+
+                    <th>Grade</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for result in records %}
+
+                <tr>
+
+                    <td>
+                        {{ result.subject }}
+                    </td>
+
+                    <td>
+                        {{ result.marks }}
+                    </td>
+
+                    <td>
+                        {{ result.total_marks }}
+                    </td>
+
+                    <td class="grade">
+                        {{ result.grade }}
+                    </td>
+
+                    <td>
+
+                        {% if result.result_status == "PASS" %}
+
+                            <span class="pass">
+                                ✓ PASS
+                            </span>
+
+                        {% else %}
+
+                            <span class="fail">
+                                ✗ FAIL
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <!-- Summary -->
+
+    {% set total_marks = records | sum(attribute='marks') %}
+    {% set total_possible = records | sum(attribute='total_marks') %}
+
+    <div class="summary">
+
+        <div class="summary-card">
+
+            <h3>Total Marks</h3>
+
+            <p>
+                {{ total_marks }}/{{ total_possible }}
+            </p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>Percentage</h3>
+
+            <p>
+
+                {% if total_possible > 0 %}
+
+                    {{ "%.2f"|format(
+                        total_marks / total_possible * 100
+                    ) }}%
+
+                {% else %}
+
+                    0%
+
+                {% endif %}
+
+            </p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>Overall Result</h3>
+
+            <p>PASS</p>
+
+        </div>
+
+    </div>
+
+
+    {% else %}
+
+
+    <div class="table-box empty">
+
+        <h3>📊 No Result Available</h3>
+
+        <p>
+            Your academic result has not been uploaded yet.
+        </p>
+
+    </div>
+
+
+    {% endif %}
+
+
+</div>
+
+
+</body>
+
+</html>

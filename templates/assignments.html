@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus360 - Assignments</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+        }
+
+        .header {
+            background: #123b70;
+            color: white;
+            padding: 20px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        .back {
+            background: white;
+            color: #123b70;
+            padding: 9px 18px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        .title {
+            margin-bottom: 25px;
+        }
+
+        .title h2 {
+            color: #123b70;
+            margin-bottom: 8px;
+        }
+
+        .title p {
+            color: #666;
+        }
+
+        .assignment-card {
+            background: white;
+            padding: 22px;
+            margin-bottom: 18px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .assignment-card h3 {
+            color: #123b70;
+            margin-bottom: 12px;
+        }
+
+        .assignment-card p {
+            color: #666;
+            margin: 8px 0;
+        }
+
+        .subject {
+            display: inline-block;
+            background: #eaf2ff;
+            color: #1976d2;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 5px;
+            background: #fff3cd;
+            color: #856404;
+            font-size: 13px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <h1>🎓 Campus360</h1>
+
+        <a href="/dashboard" class="back">
+            ← Dashboard
+        </a>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="title">
+
+            <h2>📝 Assignments</h2>
+
+            <p>
+                View your subject assignments and submission status
+            </p>
+
+        </div>
+
+
+        {% for record in records %}
+
+        <div class="assignment-card">
+
+            <span class="subject">
+                {{ record.subject }}
+            </span>
+
+            <h3>
+                {{ record.title }}
+            </h3>
+
+            <p>
+                <strong>Due Date:</strong>
+                {{ record.due_date }}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                <span class="status">
+                    {{ record.status }}
+                </span>
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+
+</html>

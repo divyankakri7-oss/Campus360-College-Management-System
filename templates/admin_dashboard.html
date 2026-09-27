@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Campus360</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#f4f7fb;
+            color:#222;
+        }
+
+        /* Header */
+
+        .header{
+            background:#1e3a8a;
+            color:white;
+            padding:20px 40px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .header h1{
+            font-size:25px;
+        }
+
+        .logout{
+            background:white;
+            color:#1e3a8a;
+            text-decoration:none;
+            padding:10px 18px;
+            border-radius:8px;
+            font-weight:bold;
+        }
+
+        /* Main */
+
+        .container{
+            max-width:1100px;
+            margin:auto;
+            padding:40px;
+        }
+
+        .welcome{
+            margin-bottom:30px;
+        }
+
+        .welcome h2{
+            color:#1e3a8a;
+            font-size:30px;
+            margin-bottom:8px;
+        }
+
+        .welcome p{
+            color:#666;
+            font-size:16px;
+        }
+
+        /* Cards */
+
+        .card-grid{
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:25px;
+        }
+
+        .card{
+            background:white;
+            padding:30px;
+            border-radius:18px;
+            text-decoration:none;
+            color:#222;
+            box-shadow:0 5px 20px rgba(0,0,0,0.08);
+            transition:0.2s;
+            border:1px solid #eef1f6;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+            box-shadow:0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .icon{
+            width:60px;
+            height:60px;
+            border-radius:15px;
+            background:#eef2ff;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:30px;
+            margin-bottom:18px;
+        }
+
+        .card h3{
+            color:#1e3a8a;
+            font-size:21px;
+            margin-bottom:8px;
+        }
+
+        .card p{
+            color:#666;
+            line-height:1.5;
+        }
+
+        /* Footer */
+
+        .footer{
+            text-align:center;
+            color:#888;
+            margin-top:40px;
+            font-size:14px;
+        }
+
+        /* Mobile */
+
+        @media(max-width:700px){
+
+            .header{
+                padding:15px 20px;
+            }
+
+            .header h1{
+                font-size:21px;
+            }
+
+            .container{
+                padding:25px 20px;
+            }
+
+            .card-grid{
+                grid-template-columns:1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Header -->
+
+    <div class="header">
+
+        <h1>🎓 Campus360 Admin</h1>
+
+        <a href="/" class="logout">
+            Logout
+        </a>
+
+    </div>
+
+
+    <!-- Main -->
+
+    <div class="container">
+
+        <div class="welcome">
+
+            <h2>👑 Admin Dashboard</h2>
+
+            <p>
+                Manage students, faculty, users and system reports.
+            </p>
+
+        </div>
+
+
+        <!-- Dashboard Cards -->
+
+        <div class="card-grid">
+
+
+            <!-- Students -->
+
+            <a href="/admin_students" class="card">
+
+                <div class="icon">
+                    👨‍🎓
+                </div>
+
+                <h3>
+                    Student Management
+                </h3>
+
+                <p>
+                    View, add, edit and delete student accounts.
+                </p>
+
+            </a>
+
+
+            <!-- Faculty -->
+
+            <a href="/admin_faculty" class="card">
+
+                <div class="icon">
+                    👨‍🏫
+                </div>
+
+                <h3>
+                    Faculty Management
+                </h3>
+
+                <p>
+                    Manage faculty members and their accounts.
+                </p>
+
+            </a>
+
+
+            <!-- Reports -->
+
+            <a href="/admin_reports" class="card">
+
+                <div class="icon">
+                    📊
+                </div>
+
+                <h3>
+                    Reports
+                </h3>
+
+                <p>
+                    View student, attendance and system reports.
+                </p>
+
+            </a>
+
+
+            <!-- Users -->
+
+            <a href="/admin_users" class="card">
+
+                <div class="icon">
+                    ⚙️
+                </div>
+
+                <h3>
+                    User Management
+                </h3>
+
+                <p>
+                    Manage registered users and their roles.
+                </p>
+
+            </a>
+
+
+        </div>
+
+
+        <div class="footer">
+
+            Campus360 • College Management System
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

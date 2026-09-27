@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus360 - Student Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+        }
+
+        /* HEADER */
+
+        .header {
+            background: #123b70;
+            color: white;
+            padding: 20px 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logout {
+            background: white;
+            color: #123b70;
+
+            padding: 9px 18px;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* MAIN */
+
+        .container {
+            max-width: 1150px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .welcome {
+            margin-bottom: 30px;
+        }
+
+        .welcome h2 {
+            color: #123b70;
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            color: #666;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 22px;
+        }
+
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .card {
+            background: white;
+
+            padding: 28px 22px;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
+
+            min-height: 180px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 8px 22px rgba(0,0,0,0.13);
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #123b70;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            text-align: center;
+            margin-top: 45px;
+            color: #888;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .header {
+                padding: 15px 20px;
+            }
+
+            .logo {
+                font-size: 21px;
+            }
+
+            .container {
+                margin: 25px auto;
+                padding: 15px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div class="logo">
+            🎓 Campus360
+        </div>
+
+        <a href="/" class="logout">
+            Logout
+        </a>
+
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="container">
+
+
+        <div class="welcome">
+
+            <h2>
+                Welcome, Divya 👋
+            </h2>
+
+            <p>
+                Student Dashboard — Manage your college activities
+                from one place.
+            </p>
+
+        </div>
+
+
+        <!-- DASHBOARD CARDS -->
+
+        <div class="cards">
+
+
+            <!-- PROFILE -->
+
+            <a href="/profile" class="card-link">
+
+                <div class="card">
+
+                    <div class="icon">
+                        👤
+                    </div>
+
+                    <h3>
+                        My Profile
+                    </h3>
+
+                    <p>
+                        View student information
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <!-- ATTENDANCE -->
+
+            <a href="/attendance" class="card-link">
+
+                <div class="card">
+
+                    <div class="icon">
+                        📅
+                    </div>
+
+                    <h3>
+                        Attendance
+                    </h3>
+
+                    <p>
+                        Check your attendance
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <!-- SUBJECTS -->
+
+            <a href="/subjects" class="card-link">
+
+                <div class="card">
+
+                    <div class="icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Subjects
+                    </h3>
+
+                    <p>
+                        View your subjects
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <!-- ASSIGNMENTS -->
+
+            <a href="/assignments" class="card-link">
+
+                <div class="card">
+
+                    <div class="icon">
+                        📝
+                    </div>
+
+                    <h3>
+                        Assignments
+                    </h3>
+
+                    <p>
+                        View assignments
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <!-- NOTICES -->
+
+            <a href="/notices" class="card-link">
+
+                <div class="card">
+
+                    <div class="icon">
+                        📢
+                    </div>
+
+                    <h3>
+                        Notices
+                    </h3>
+
+                    <p>
+                        College announcements
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <!-- TIMETABLE -->
+
+            <a href="/timetable" class="card-link">
+
+                <div class="card">
+
+                    <div class="icon">
+                        🕐
+                    </div>
+
+                    <h3>
+                        Timetable
+                    </h3>
+
+                    <p>
+                        View class schedule
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            <!-- COMPLAINTS -->
+
+            <a href="/complaints" class="card-link">
+
+                <div class="card">
+
+                    <div class="icon">
+                        📝
+                    </div>
+
+                    <h3>
+                        Complaints
+                    </h3>
+
+                    <p>
+                        Submit your complaint
+                    </p>
+
+                </div>
+
+            </a>
+
+
+            
+            <a href="/result" class="card">
+             <div class="icon">📊</div>
+             <h3>Result</h3>
+             <p>View your academic result</p>
+             </a>
+
+
+        </div>
+
+
+        <div class="footer">
+
+            © 2026 Campus360 | College Management System
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus360 - My Profile</title>
+
+
+    <style>
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+
+            font-family: Arial, sans-serif;
+        }
+
+
+        body {
+
+            background: #f4f7fb;
+        }
+
+
+        /* HEADER */
+
+        .header {
+
+            background: #123b70;
+
+            color: white;
+
+            padding: 20px 35px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .header h1 {
+
+            font-size: 24px;
+        }
+
+
+        .back {
+
+            background: white;
+
+            color: #123b70;
+
+            padding: 9px 18px;
+
+            border-radius: 7px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        /* MAIN */
+
+        .container {
+
+            max-width: 850px;
+
+            margin: 40px auto;
+
+            padding: 20px;
+        }
+
+
+        /* PROFILE CARD */
+
+        .profile-card {
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+
+        .profile-icon {
+
+            text-align: center;
+
+            font-size: 70px;
+
+            margin-bottom: 15px;
+        }
+
+
+        h2 {
+
+            text-align: center;
+
+            color: #123b70;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* INFORMATION */
+
+        .info {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+
+        .box {
+
+            background: #f4f7fb;
+
+            padding: 18px;
+
+            border-radius: 8px;
+        }
+
+
+        .box strong {
+
+            display: block;
+
+            color: #123b70;
+
+            margin-bottom: 7px;
+        }
+
+
+        .box span {
+
+            color: #555;
+
+            font-size: 15px;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 600px) {
+
+            .info {
+
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+
+                margin-top: 20px;
+            }
+
+            .header {
+
+                padding: 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <h1>
+            🎓 Campus360
+        </h1>
+
+
+        <a href="/dashboard" class="back">
+
+            ← Dashboard
+
+        </a>
+
+    </div>
+
+
+    <!-- PROFILE -->
+
+    <div class="container">
+
+
+        <div class="profile-card">
+
+
+            <div class="profile-icon">
+                👤
+            </div>
+
+
+            <h2>
+                My Profile
+            </h2>
+
+
+            <div class="info">
+
+
+                <div class="box">
+
+                    <strong>
+                        Name
+                    </strong>
+
+                    <span>
+                        Divya
+                    </span>
+
+                </div>
+
+
+                <div class="box">
+
+                    <strong>
+                        Role
+                    </strong>
+
+                    <span>
+                        Student
+                    </span>
+
+                </div>
+
+
+                <div class="box">
+
+                    <strong>
+                        Email
+                    </strong>
+
+                    <span>
+                        divyankakri7@gmail.com
+                    </span>
+
+                </div>
+
+
+                <div class="box">
+
+                    <strong>
+                        Branch
+                    </strong>
+
+                    <span>
+                        CSE (IoT)
+                    </span>
+
+                </div>
+
+
+                <div class="box">
+
+                    <strong>
+                        Semester
+                    </strong>
+
+                    <span>
+                        6th Semester
+                    </span>
+
+                </div>
+
+
+                <div class="box">
+
+                    <strong>
+                        College
+                    </strong>
+
+                    <span>
+                        Bakhtiyarpur College of Engineering
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

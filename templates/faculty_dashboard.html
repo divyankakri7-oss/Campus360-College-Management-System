@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard - Campus360</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        .header {
+            background: #1e3a8a;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 26px;
+        }
+
+        .logout {
+            background: white;
+            color: #1e3a8a;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 40px;
+        }
+
+        .welcome {
+            margin-bottom: 30px;
+        }
+
+        .welcome h2 {
+            font-size: 28px;
+            color: #1e3a8a;
+        }
+
+        .welcome p {
+            color: #666;
+            margin-top: 8px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: #222;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        @media(max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            .header {
+                padding: 15px 20px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>🎓 Campus360</h1>
+    <a href="/" class="logout">Logout</a>
+</div>
+
+<div class="container">
+
+    <div class="welcome">
+        <h2>Welcome, Faculty 👋</h2>
+        <p>Manage students, attendance, assignments and academic activities.</p>
+    </div>
+
+    <div class="grid">
+
+        <a href="/faculty_profile" class="card">
+            <div class="icon">👤</div>
+            <h3>My Profile</h3>
+            <p>View faculty profile</p>
+        </a>
+
+        <a href="/faculty_students" class="card">
+            <div class="icon">👨‍🎓</div>
+            <h3>Students</h3>
+            <p>View registered students</p>
+        </a>
+
+        <a href="/faculty_attendance" class="card">
+            <div class="icon">📊</div>
+            <h3>Attendance</h3>
+            <p>View student attendance</p>
+        </a>
+
+        <a href="/faculty_assignments" class="card">
+            <div class="icon">📝</div>
+            <h3>Assignments</h3>
+            <p>View assignments</p>
+        </a>
+
+        <a href="/faculty_notices" class="card">
+            <div class="icon">📢</div>
+            <h3>Notices</h3>
+            <p>View college notices</p>
+        </a>
+
+        <a href="/faculty_timetable" class="card">
+            <div class="icon">📅</div>
+            <h3>Timetable</h3>
+            <p>View class timetable</p>
+        </a>
+
+        <a href="/faculty_reports" class="card">
+            <div class="icon">📈</div>
+            <h3>Reports</h3>
+            <p>View academic reports</p>
+        </a>
+
+        <a href="/faculty_complaints" class="card">
+            <div class="icon">💬</div>
+            <h3>Complaints</h3>
+            <p>View student complaints</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

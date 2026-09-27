@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus360 - Faculty Reports</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+        }
+
+        .header {
+            background: #123b70;
+            color: white;
+            padding: 20px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        .back {
+            background: white;
+            color: #123b70;
+            padding: 9px 18px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        .title {
+            margin-bottom: 25px;
+        }
+
+        .title h2 {
+            color: #123b70;
+            margin-bottom: 8px;
+        }
+
+        .title p {
+            color: #666;
+        }
+
+        .reports {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .report-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #123b70;
+        }
+
+        .icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .report-card h3 {
+            color: #123b70;
+            margin-bottom: 10px;
+        }
+
+        .report-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .view-btn {
+            display: inline-block;
+            background: #123b70;
+            color: white;
+            padding: 9px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .empty {
+            background: white;
+            padding: 35px;
+            text-align: center;
+            border-radius: 12px;
+            color: #777;
+        }
+
+        @media (max-width: 650px) {
+            .reports {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <h1>🎓 Campus360</h1>
+
+        <a href="/faculty_dashboard" class="back">
+            ← Dashboard
+        </a>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="title">
+
+            <h2>📊 Faculty Reports</h2>
+
+            <p>
+                View academic and student management reports
+            </p>
+
+        </div>
+
+
+        {% if records %}
+
+        <div class="reports">
+
+            {% for record in records %}
+
+            <div class="report-card">
+
+                <div class="icon">
+                    📊
+                </div>
+
+                <h3>
+                    {{ record.report_type }}
+                </h3>
+
+                <p>
+                    {{ record.details }}
+                </p>
+
+                <a href="#" class="view-btn">
+                    View Report
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="empty">
+
+            <h3>No Reports Available</h3>
+
+            <p>
+                Reports will appear here when available.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus360 - Complaints</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+        }
+
+        .header {
+            background: #123b70;
+            color: white;
+            padding: 20px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        .back {
+            background: white;
+            color: #123b70;
+            padding: 9px 18px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 35px auto;
+            padding: 20px;
+        }
+
+        .title {
+            margin-bottom: 25px;
+        }
+
+        .title h2 {
+            color: #123b70;
+            margin-bottom: 8px;
+        }
+
+        .title p {
+            color: #666;
+        }
+
+        .form-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #d5dbe5;
+            border-radius: 7px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #123b70;
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            background: #123b70;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d2d56;
+        }
+
+        .success {
+            background: #e8f7ee;
+            color: #1b7a42;
+            padding: 12px;
+            border-radius: 7px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .info {
+            margin-top: 20px;
+            background: #eef5ff;
+            padding: 15px;
+            border-radius: 8px;
+            color: #456;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .header {
+                padding: 15px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .form-card {
+                padding: 20px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+
+        <h1>🎓 Campus360</h1>
+
+        <a href="/dashboard" class="back">
+            ← Dashboard
+        </a>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="title">
+
+            <h2>📝 Submit a Complaint</h2>
+
+            <p>
+                Report any college-related issue or problem
+            </p>
+
+        </div>
+
+
+        <div class="form-card">
+
+            {% if message %}
+
+            <div class="success">
+                ✅ {{ message }}
+            </div>
+
+            {% endif %}
+
+
+            <form method="POST">
+
+                <label for="subject">
+                    Complaint Subject
+                </label>
+
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="Enter complaint subject"
+                    required
+                >
+
+
+                <label for="description">
+                    Complaint Description
+                </label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    placeholder="Describe your complaint in detail..."
+                    required
+                ></textarea>
+
+
+                <button type="submit">
+                    Submit Complaint
+                </button>
+
+            </form>
+
+
+            <div class="info">
+                💡 Your complaint will be submitted to the college administration
+                for review.
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

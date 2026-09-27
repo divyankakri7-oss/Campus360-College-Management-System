@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus360 - Attendance</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+        }
+
+        .header {
+            background: #123b70;
+            color: white;
+            padding: 20px 35px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        .back {
+            background: white;
+            color: #123b70;
+            padding: 9px 18px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .title {
+            margin-bottom: 25px;
+        }
+
+        .title h2 {
+            color: #123b70;
+            margin-bottom: 7px;
+        }
+
+        .title p {
+            color: #666;
+        }
+
+        .attendance-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #123b70;
+            color: white;
+            padding: 14px;
+            text-align: left;
+        }
+
+        td {
+            padding: 14px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .percentage {
+            font-weight: bold;
+            color: #1976d2;
+        }
+
+        .overall {
+            margin-top: 25px;
+            background: #eaf2ff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .overall h3 {
+            color: #123b70;
+            margin-bottom: 8px;
+        }
+
+        .overall p {
+            font-size: 25px;
+            font-weight: bold;
+            color: #1976d2;
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 20px;
+            }
+
+            .header {
+                padding: 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="header">
+
+        <h1>🎓 Campus360</h1>
+
+        <a href="/dashboard" class="back">
+            ← Dashboard
+        </a>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <div class="title">
+
+            <h2>📅 Attendance</h2>
+
+            <p>
+                View your subject-wise attendance
+            </p>
+
+        </div>
+
+
+        <div class="attendance-card">
+
+            <table>
+
+                <tr>
+
+                    <th>Subject</th>
+
+                    <th>Total Classes</th>
+
+                    <th>Attended</th>
+
+                    <th>Percentage</th>
+
+                </tr>
+
+
+                {% set total = namespace(classes=0, attended=0) %}
+
+
+                {% for record in records %}
+
+                {% set total.classes = total.classes + record.total_classes %}
+
+                {% set total.attended = total.attended + record.attended_classes %}
+
+
+                <tr>
+
+                    <td>
+                        {{ record.subject }}
+                    </td>
+
+                    <td>
+                        {{ record.total_classes }}
+                    </td>
+
+                    <td>
+                        {{ record.attended_classes }}
+                    </td>
+
+                    <td class="percentage">
+
+                        {{ "%.1f"|format(
+                            (record.attended_classes / record.total_classes) * 100
+                        ) }}%
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+
+            <div class="overall">
+
+                <h3>
+                    Overall Attendance
+                </h3>
+
+                {% if total.classes > 0 %}
+
+                <p>
+                    {{ "%.1f"|format(
+                        (total.attended / total.classes) * 100
+                    ) }}%
+                </p>
+
+                {% else %}
+
+                <p>
+                    No attendance data
+                </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>

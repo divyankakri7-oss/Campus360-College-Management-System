@@ -1,142 +1,91 @@
-# Campus360 – College Management System
+# 🎓 Campus360 – College Management System
 
-Campus360 is a web-based College Management System designed to manage
-student, faculty, and administrative activities from a single platform.
+<p align="center">
+  <b>A Role-Based College Management System built with Flask & MySQL</b>
+</p>
 
-## Project Overview
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python">
+  <img src="https://img.shields.io/badge/Flask-Web%20Framework-black?style=for-the-badge&logo=flask">
+  <img src="https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge&logo=mysql">
+  <img src="https://img.shields.io/badge/HTML5-Frontend-red?style=for-the-badge&logo=html5">
+  <img src="https://img.shields.io/badge/CSS3-Styling-blue?style=for-the-badge&logo=css3">
+</p>
 
-The system provides role-based access for:
+---
 
-- Student
-- Faculty
-- Admin
+## 📌 About The Project
 
-Each role gets a separate dashboard and features according to its responsibilities.
+**Campus360** is a web-based College Management System designed to bring important college activities into one centralized platform.
 
-## Main Features
+The system provides separate dashboards for **Students, Faculty, and Administrators**, with features designed according to each user's role.
 
-### Student Module
+The project focuses on creating a simple, organized and user-friendly system for managing academic information and college activities.
 
-- Student Login
-- Student Dashboard
-- Profile
-- Attendance
-- Subjects
-- Assignments
-- Notices
-- Timetable
-- Academic Result
-- Complaints
+---
 
-### Faculty Module
+## ✨ Key Features
 
-- Faculty Login
-- Faculty Dashboard
-- Faculty Profile
-- Student List
-- Student Profile
-- Attendance Monitoring
-- Assignment Management
-- Assignment Submission Tracking
-- Notices
-- Timetable
-- Reports
-- Complaints
+### 👨‍🎓 Student Module
 
-### Admin Module
+- 🔐 Secure Login
+- 📊 Student Dashboard
+- 📅 Attendance Tracking
+- 📝 Assignment Management
+- 📢 College Notices
+- 🗓️ Timetable
+- 📚 Academic Results
+- 👤 Student Profile
+- 💬 Complaint Submission
 
-- Admin Login
-- Admin Dashboard
-- Student Management
-- Faculty Management
-- System Reports
-- User Management
-- Role Management
+### 👩‍🏫 Faculty Module
 
-## Technology Stack
+- 🔐 Faculty Login
+- 📊 Faculty Dashboard
+- 👨‍🎓 Student Management
+- 📋 Attendance Management
+- 📝 Assignment Management
+- 📢 Notice Management
+- 🗓️ Faculty Timetable
+- 📊 Reports
+- 💬 Complaint Management
+- 👤 Faculty Profile
 
-### Frontend
-- HTML
-- CSS
-- JavaScript
+### 🛠️ Admin Module
 
-### Backend
-- Python
-- Flask
+- 🔐 Admin Login
+- 📊 Admin Dashboard
+- 👨‍🎓 Student Management
+- 👩‍🏫 Faculty Management
+- 👥 User Management
+- 📊 Reports
+- ✏️ Edit Student & Faculty Details
 
-### Database
-- MySQL
+---
 
-### Development Tools
-- Visual Studio Code
-- MySQL Server
-- Git
-- GitHub
-
-## Database
-
-The project uses MySQL database named:
-
-`smart_college`
-
-Main database tables include:
-
-- users
-- attendance
-- subjects
-- assignments
-- assignment_submissions
-- notices
-- timetable
-- complaints
-- reports
-- results
-
-## Project Structure
+## 🏗️ System Architecture
 
 ```text
-Smart College Management/
-│
-├── app.py
-├── .env
-├── .gitignore
-├── requirements.txt
-├── README.md
-│
-├── templates/
-│   ├── login.html
-│   ├── dashboard.html
-│   ├── profile.html
-│   ├── attendance.html
-│   ├── subjects.html
-│   ├── assignments.html
-│   ├── notices.html
-│   ├── timetable.html
-│   ├── result.html
-│   ├── complaints.html
-│   │
-│   ├── faculty_dashboard.html
-│   ├── faculty_profile.html
-│   ├── faculty_students.html
-│   ├── faculty_student_profile.html
-│   ├── faculty_attendance.html
-│   ├── faculty_assignments.html
-│   ├── faculty_assignment_detail.html
-│   ├── faculty_notices.html
-│   ├── faculty_timetable.html
-│   ├── faculty_reports.html
-│   └── faculty_complaints.html
-│   │
-│   ├── admin_dashboard.html
-│   ├── admin_students.html
-│   ├── admin_edit_student.html
-│   ├── admin_faculty.html
-│   ├── admin_edit_faculty.html
-│   ├── admin_reports.html
-│   └── admin_users.html
-│
-├── static/
-│   ├── css/
-│   └── js/
-│
-└── venv/
+                    ┌──────────────────────┐
+                    │      Campus360       │
+                    │ College Management   │
+                    │       System         │
+                    └──────────┬───────────┘
+                               │
+             ┌─────────────────┼─────────────────┐
+             │                 │                 │
+             ▼                 ▼                 ▼
+       ┌───────────┐     ┌───────────┐     ┌───────────┐
+       │  Student  │     │  Faculty  │     │   Admin   │
+       └─────┬─────┘     └─────┬─────┘     └─────┬─────┘
+             │                 │                 │
+             └─────────────────┼─────────────────┘
+                               ▼
+                     ┌──────────────────┐
+                     │   Flask Backend  │
+                     └────────┬─────────┘
+                              │
+                              ▼
+                     ┌──────────────────┐
+                     │  MySQL Database  │
+                     └──────────────────┘
